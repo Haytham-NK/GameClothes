@@ -110,5 +110,41 @@
   <ItemGroup>
     <None Include="Resources\true.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\boots false.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\boots true.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cap false.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cap true.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dess false.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dess true.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\heels false.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\heels true.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\hoodie false.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\hoodie true.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\jeans false.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\jeans true.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

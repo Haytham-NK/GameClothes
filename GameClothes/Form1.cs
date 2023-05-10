@@ -194,26 +194,60 @@ namespace GameClothes
 
         private void buttonFinish_Click(object sender, EventArgs e)
         {
-            label1.Visible = false;
-            label2.Visible = false;
-            label3.Visible = false;
-            label4.Visible = false;
-            label5.Visible = false;
-            label6.Visible = false;
-
-            PictureBox[] pictureBoxes = { pictureBox1, pictureBox2, pictureBox3, pictureBox4, pictureBox5, pictureBox6 };
-            for (int i = 0; i < 6; i++)
+            if (CorrectArr[0] == true)
             {
-                if (CorrectArr[i] == true)
-                {
-                    pictureBoxes[i].Image = Properties.Resources._true;
-                }
-                else
-                {
-                    pictureBoxes[i].Image = Properties.Resources._false;
-                }
+                pictureBox1.Image = Properties.Resources.boots_true;
             }
-            
+            else
+            {
+                pictureBox1.Image = Properties.Resources.boots_false;
+            }
+
+            if (CorrectArr[1] == true)
+            {
+                pictureBox2.Image = Properties.Resources.cap_true;
+            }
+            else
+            {
+                pictureBox2.Image = Properties.Resources.cap_false;
+            }
+
+            if (CorrectArr[2] == true)
+            {
+                pictureBox3.Image = Properties.Resources.dess_true;
+            }
+            else
+            {
+                pictureBox3.Image = Properties.Resources.dess_false;
+            }
+
+            if (CorrectArr[3] == true)
+            {
+                pictureBox4.Image = Properties.Resources.heels_true;
+            }
+            else
+            {
+                pictureBox4.Image = Properties.Resources.heels_false;
+            }
+
+            if (CorrectArr[4] == true)
+            {
+                pictureBox5.Image = Properties.Resources.hoodie_true;
+            }
+            else
+            {
+                pictureBox5.Image = Properties.Resources.hoodie_false;
+            }
+
+            if (CorrectArr[5] == true)
+            {
+                pictureBox6.Image = Properties.Resources.jeans_true;
+            }
+            else
+            {
+                pictureBox6.Image = Properties.Resources.jeans_false;
+            }
+
             stopwatch.Stop();
             MessageBox.Show($"{correctMatches} out of 6 correct answer!\ntime: {labelTime.Text}", "Result", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
