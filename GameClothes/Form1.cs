@@ -18,6 +18,7 @@ namespace GameClothes
         private Random rand = new Random();
         private int correctMatches = 0;
         private readonly Stopwatch stopwatch = new Stopwatch();
+        private bool[] CorrectArr = new bool[6];
 
         PictureBox pb;
         Label draggedLabel;   
@@ -73,31 +74,37 @@ namespace GameClothes
             {
                 draggedLabel.Tag = pb;
                 correctMatches++;
+                CorrectArr[0] = true;
             }
             else if (pb == pictureBox2 && draggedLabel == label2)
             {
                 draggedLabel.Tag = pb;
                 correctMatches++;
+                CorrectArr[1] = true;
             }
             else if (pb == pictureBox3 && draggedLabel == label3)
             {
                 draggedLabel.Tag = pb;
                 correctMatches++;
+                CorrectArr[2] = true;
             }
             else if (pb == pictureBox4 && draggedLabel == label4)
             {
                 draggedLabel.Tag = pb;
                 correctMatches++;
+                CorrectArr[3] = true;
             }
             else if (pb == pictureBox5 && draggedLabel == label5)
             {
                 draggedLabel.Tag = pb;
                 correctMatches++;
+                CorrectArr[4] = true;
             }
             else if (pb == pictureBox6 && draggedLabel == label6)
             {
                 draggedLabel.Tag = pb;
                 correctMatches++;
+                CorrectArr[5] = true;
             }
 
             draggedLabel.Enabled = false;
@@ -127,6 +134,20 @@ namespace GameClothes
             label5.Enabled = true;
             label6.Enabled = true;
 
+            label1.Visible = true;
+            label2.Visible = true;
+            label3.Visible = true;
+            label4.Visible = true;
+            label5.Visible = true;
+            label6.Visible = true;
+
+            pictureBox1.Image = Properties.Resources.boots;
+            pictureBox2.Image = Properties.Resources.cap;
+            pictureBox3.Image = Properties.Resources.dress;
+            pictureBox4.Image = Properties.Resources.heels;
+            pictureBox5.Image = Properties.Resources.hoodie;
+            pictureBox6.Image = Properties.Resources.jeans;
+
             Random rand = new Random();
 
             PictureBox[] pictureBoxes = { pictureBox1, pictureBox2, pictureBox3, pictureBox4, pictureBox5, pictureBox6 };
@@ -138,6 +159,7 @@ namespace GameClothes
                 var temp = pictureBoxes[j].Location;
                 pictureBoxes[j].Location = pictureBoxes[i].Location;
                 pictureBoxes[i].Location = temp;
+                CorrectArr[i] = false;
             }
             stopwatch.Restart();
             // Сброс счетчика правильных совпадений
@@ -172,8 +194,29 @@ namespace GameClothes
 
         private void buttonFinish_Click(object sender, EventArgs e)
         {
+            label1.Visible = false;
+            label2.Visible = false;
+            label3.Visible = false;
+            label4.Visible = false;
+            label5.Visible = false;
+            label6.Visible = false;
+
+            PictureBox[] pictureBoxes = { pictureBox1, pictureBox2, pictureBox3, pictureBox4, pictureBox5, pictureBox6 };
+            for (int i = 0; i < 6; i++)
+            {
+                if (CorrectArr[i] == true)
+                {
+                    pictureBoxes[i].Image = Properties.Resources._true;
+                }
+                else
+                {
+                    pictureBoxes[i].Image = Properties.Resources._false;
+                }
+            }
+            
             stopwatch.Stop();
             MessageBox.Show($"{correctMatches} out of 6 correct answer!\ntime: {labelTime.Text}", "Result", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
         }
 
         private void timer1_Tick(object sender, EventArgs e)
